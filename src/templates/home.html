@@ -1,0 +1,79 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<title>OpenAI Chat, Edit, and Completion</title>#}
+{#</head>#}
+{#<body>#}
+{#	<h1>OpenAI Chat, Edit, and Completion</h1>#}
+{#	<ul>#}
+{#		<li><a href="/chat">Chat</a></li>#}
+{#		<li><a href="/edit">Edit</a></li>#}
+{#		<li><a href="/completion">Completion</a></li>#}
+{#	</ul>#}
+{#</body>#}
+{#</html>#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <title>OpenAI Chat, Edit, and Completion</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>OpenAI Chat, Edit, and Completion</h1>#}
+{#    <form action="/" method="get">#}
+{#        <label for="prompt">Prompt:</label>#}
+{#        <input type="text" id="prompt" name="prompt"><br><br>#}
+{##}
+{#        <label for="service">Service:</label>#}
+{#        <select id="service" name="service">#}
+{#            <option value="chat">Chat</option>#}
+{#            <option value="edit">Edit</option>#}
+{#            <option value="completion">Completion</option>#}
+{#        </select><br><br>#}
+{##}
+{#        <input type="submit" value="Submit">#}
+{#    </form>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OpenAI Chat, Edit, and Completion</title>
+</head>
+<body>
+	<h1>OpenAI Chat, Edit, and Completion</h1>
+
+	<!-- Chat service form -->
+	<h2>Chat Service</h2>
+	<form action="/chat" method="get">
+		<label for="chat-prompt">Prompt:</label><br>
+		<input type="text" id="chat-prompt" name="prompt"><br>
+		<input type="submit" value="Submit">
+	</form>
+
+	<!-- Edit service form -->
+	<h2>Edit Service</h2>
+	<form action="/edit" method="get">
+		<label for="edit-prompt">Prompt:</label><br>
+		<input type="text" id="edit-prompt" name="prompt"><br>
+		<input type="submit" value="Submit">
+	</form>
+
+	<!-- Completion service form -->
+	<h2>Completion Service</h2>
+	<form action="/completion" method="get">
+		<label for="completion-prompt">Prompt:</label><br>
+		<input type="text" id="completion-prompt" name="prompt"><br>
+		<input type="submit" value="Submit">
+	</form>
+
+<!-- image service -->
+	<h2>Image Service</h2>
+	<form action="/image" method="get">
+		<label for="image-prompt">Prompt:</label><br>
+		<input type="text" id="image-prompt" name="prompt"><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
