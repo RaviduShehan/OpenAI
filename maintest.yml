@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: mainapp-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mainapp-test
+  template:
+    metadata:
+      labels:
+        app: mainapp-test
+    spec:
+      containers:
+      - name: mainapp-test
+        image: shehan97105/mainapp:latest
+        ports:
+        - containerPort: 5000

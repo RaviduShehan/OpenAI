@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: mainapp-prod
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: mainapp-prod
+  strategry:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: mainapp-prod
+    spec:
+      containers:
+      - name: mainapp-prod
+        image: shehan97105/mainapp:latest
+        ports:
+        - containerPort: 5000

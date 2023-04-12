@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: mainapp-dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mainapp-dev
+  template:
+    metadata:
+      labels:
+        app: mainapp-dev
+    spec:
+      containers:
+      - name: mainapp-dev
+        image: shehan97105/mainapp:latest
+        ports:
+        - containerPort: 5000

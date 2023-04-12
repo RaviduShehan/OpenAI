@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    environment {
+        dockerImageName = "shehan97105/mainapp"
+        dockerImage = null
+    }
+    stages{
+        stage('Deploy to Dev Enviornment') {
+                steps {
+                    script {
+                         kubernetesDeploy(configs: 'maindev.yml', kubeconfigId:'kubernetesconfigpwd')
+                        }
+                    }
+                }
+        stage('Deploy to Test Enviornment') {
+                steps {
+                    script {
+                         kubernetesDeploy(configs: 'maintest.yml', kubeconfigId:'kubernetesconfigpwd')
+                        }
+                }
+        }
+        stage('Deploy to Prod Enviornment') {
+                steps {
+                    script {
+                         kubernetesDeploy(configs: 'mainprod.yml', kubeconfigId:'kubernetesconfigpwd')
+                        }
+                    }
+        }
+    }
+}
