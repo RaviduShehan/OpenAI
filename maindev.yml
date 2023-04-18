@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mainapp-dev
-        image: shehan97105/mainapp:v1
+        image: shehan97105/mainapp:v2
         ports:
         - containerPort: 5000
 
