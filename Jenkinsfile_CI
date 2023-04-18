@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        dockerImageName = "shehan97105/mainapp"
+        dockerImageName = "shehan97105/mainapp:v1"
         dockerImage = null
     }
     stages {

@@ -1,16 +1,26 @@
 pipeline {
     agent any
     environment {
-        dockerImageName = "shehan97105/mainapp"
+        dockerImageName = "shehan97105/mainapp:v1"
         dockerImage = null
+
+        gkeClusterName = "openai-api-cluster"
+        gkeZone = "us-central1-c"
+        gkeCredentialsId = "apiservicesauth"
     }
     stages{
         stage('Deploy to Dev Enviornment') {
                 steps {
-                    script {
-                         kubernetesDeploy(configs: 'maindev.yml', kubeconfigId:'kubernetesconfigpwd')
+              steps {
+                    step([
+                        $class: 'KubernetesEngineBuilder',
+                        projectId: 'apiservices-384122',
+                        credentialsId: gkeCredentialsId,
+                        clusterName: gkeClusterName,
+                        location: gkeZone,
+                        manifestPattern: 'maindev.yml']
+                         )
                         }
-                    }
                 }
         stage('Deploy to Test Enviornment') {
                 steps {
