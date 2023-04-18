@@ -22,20 +22,7 @@ pipeline {
                          )
                         }
                 }
-        stage('Deploy to Test Enviornment') {
-                steps {
-                    script {
-                         kubernetesDeploy(configs: 'maintest.yml', kubeconfigId:'kubernetesconfigpwd')
-                        }
-                }
-        }
-        stage('Deploy to Prod Enviornment') {
-                steps {
-                    script {
-                         kubernetesDeploy(configs: 'mainprod.yml', kubeconfigId:'kubernetesconfigpwd')
-                        }
-                    }
+
         }
     }
-}
 }
